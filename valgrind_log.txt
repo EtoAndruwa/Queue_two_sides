@@ -1,0 +1,56 @@
+==278== Memcheck, a memory error detector
+==278== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==278== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==278== Command: ./QUEUE.exe
+==278== Parent PID: 277
+==278== 
+==278== error calling PR_SET_PTRACER, vgdb might block
+==278== 
+==278== Process terminating with default action of signal 2 (SIGINT)
+==278==    at 0x4975992: read (read.c:26)
+==278==    by 0x48EDCB5: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:516)
+==278==    by 0x48EEE15: _IO_default_uflow (genops.c:362)
+==278==    by 0x48C414F: __vfscanf_internal (vfscanf-internal.c:628)
+==278==    by 0x48C31C1: __isoc99_scanf (isoc99_scanf.c:30)
+==278==    by 0x109825: logic(queue*) (queue_two_sides.cpp:112)
+==278==    by 0x10925B: main (main.cpp:7)
+==278== 
+==278== HEAP SUMMARY:
+==278==     in use at exit: 2,048 bytes in 3 blocks
+==278==   total heap usage: 3 allocs, 0 frees, 2,048 bytes allocated
+==278== 
+==278== 512 bytes in 1 blocks are still reachable in loss record 1 of 3
+==278==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==278==    by 0x48DFC23: _IO_file_doallocate (filedoalloc.c:101)
+==278==    by 0x48EED5F: _IO_doallocbuf (genops.c:347)
+==278==    by 0x48EDFDF: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+==278==    by 0x48EC754: _IO_new_file_xsputn (fileops.c:1243)
+==278==    by 0x48EC754: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+==278==    by 0x48E1F9B: puts (ioputs.c:40)
+==278==    by 0x10980A: logic(queue*) (queue_two_sides.cpp:111)
+==278==    by 0x10925B: main (main.cpp:7)
+==278== 
+==278== 512 bytes in 1 blocks are still reachable in loss record 2 of 3
+==278==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==278==    by 0x48DFC23: _IO_file_doallocate (filedoalloc.c:101)
+==278==    by 0x48EED5F: _IO_doallocbuf (genops.c:347)
+==278==    by 0x48EDD5B: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:485)
+==278==    by 0x48EEE15: _IO_default_uflow (genops.c:362)
+==278==    by 0x48C414F: __vfscanf_internal (vfscanf-internal.c:628)
+==278==    by 0x48C31C1: __isoc99_scanf (isoc99_scanf.c:30)
+==278==    by 0x109825: logic(queue*) (queue_two_sides.cpp:112)
+==278==    by 0x10925B: main (main.cpp:7)
+==278== 
+==278== 1,024 bytes in 1 blocks are still reachable in loss record 3 of 3
+==278==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==278==    by 0x109435: queue_ctor(queue*) (queue_two_sides.cpp:8)
+==278==    by 0x10924F: main (main.cpp:6)
+==278== 
+==278== LEAK SUMMARY:
+==278==    definitely lost: 0 bytes in 0 blocks
+==278==    indirectly lost: 0 bytes in 0 blocks
+==278==      possibly lost: 0 bytes in 0 blocks
+==278==    still reachable: 2,048 bytes in 3 blocks
+==278==         suppressed: 0 bytes in 0 blocks
+==278== 
+==278== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
