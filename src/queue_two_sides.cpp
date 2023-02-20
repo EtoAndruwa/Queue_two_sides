@@ -1,7 +1,9 @@
 #include "queue_two_sides.h"
 
 void push_tail_queue(queue* queue_str, queue_type val)
-{
+{   
+    check_errors(queue_str, FUNC_NAME, FUNC_LINE, FUNC_FILE);
+
     if(check_tail_head(queue_str))
     {   
         queue_str->queue_ptr[queue_str->tail] = val;
@@ -12,10 +14,14 @@ void push_tail_queue(queue* queue_str, queue_type val)
     {
         printf("queue if full! pls pop\n");
     }
+
+    check_errors(queue_str, FUNC_NAME, FUNC_LINE, FUNC_FILE);
 }
 
 void push_head_queue(queue* queue_str, queue_type val)
 {
+    check_errors(queue_str, FUNC_NAME, FUNC_LINE, FUNC_FILE);
+
     if(check_tail_head(queue_str))
     {   
         queue_str->queue_ptr[queue_str->head] = val;
@@ -26,10 +32,14 @@ void push_head_queue(queue* queue_str, queue_type val)
     {
         printf("queue if full! pls pop\n");
     }
+
+    check_errors(queue_str, FUNC_NAME, FUNC_LINE, FUNC_FILE);
 }
 
 queue_type pop_tail_queue(queue* queue_str)
 {
+    check_errors(queue_str, FUNC_NAME, FUNC_LINE, FUNC_FILE);
+
     if(queue_str->num_in_queu != 0)
     {   
         queue_str->tail--;
@@ -43,10 +53,14 @@ queue_type pop_tail_queue(queue* queue_str)
     {
         printf("queue is empty! pls push\n");
     }
+
+    check_errors(queue_str, FUNC_NAME, FUNC_LINE, FUNC_FILE);
 }
 
 queue_type pop_head_queue(queue* queue_str)
 {
+    check_errors(queue_str, FUNC_NAME, FUNC_LINE, FUNC_FILE);
+
     if(queue_str->num_in_queu != 0)
     {   
         queue_str->head++;
@@ -60,10 +74,14 @@ queue_type pop_head_queue(queue* queue_str)
     {
         printf("queue is empty! pls push\n");
     }
+
+    check_errors(queue_str, FUNC_NAME, FUNC_LINE, FUNC_FILE);
 }
 
 size_t check_tail_head(queue* queue_str)
 {
+    check_errors(queue_str, FUNC_NAME, FUNC_LINE, FUNC_FILE);
+
     if(((queue_str->tail == (queue_str->head - 1)) || ((queue_str->tail - 1) == queue_str->head)) && (queue_str->num_in_queu != 0))
     {
         return 0; // Queue is full
